@@ -16,7 +16,7 @@ namespace SharpBoss.Attributes {
     /// <summary>
     /// Create new request path parameter with name
     /// </summary>
-    /// <param name="paramName">Query string parameter name</param>
+    /// <param name="paramName">Path parameter name</param>
     public PathParam (string paramName) {
       this._paramName = paramName;
     }
