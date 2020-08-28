@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<package>
+  <metadata>
+    <id>SharpBoss</id>
+    <version>1.0.0</version>
+    <title>SharpBoss</title>
+    <authors>RacerXDL</authors>
+    <owners>RacerXDL</owners>
+    <licenseUrl>https://www.website.com/terms</licenseUrl>
+    <projectUrl>https://github.com/racerxdl/AppServer</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A simple C# Application Server inspired on Redhat JBoss Project.</description>
+    <releaseNotes>Initial 1.0.0 release</releaseNotes>
+    <copyright>Copyright 2020 RacerXDL</copyright>
+    <tags>sample nuget</tags>
+    <dependencies>
+      
+    </dependencies>
+    <summary>
+      Features:
+
+      - Working HTTP Server
+      - Hot-Deploy / Un-deploy Assemblies
+      - Log support
+      - Multiple Applications
+      - Exception Handling support with Debug Symbols Support (if provided on the app folder)
+      - JSON Serializer for Object Return in REST calls
+      - Custom Exception Handlers
+      - Argument Deserialization for REST calls
+      - Dependency Injection with Inject attribute
+
+      TODO:
+
+      - REST Path Param support (WIP)
+      - Better threading for multiple apps
+      - NHibernate Services Support with Automatic Session Open / Close / Exception Handler
+      - Unit Tests to ensure everything is OK
+    </summary>
+  </metadata>
+  <files>
+    <file src="Workers\**" target="SharpBoss\Workers" />
+    <file src="Models\**" target="SharpBoss\Models" />
+    <file src="Processors\**" target="SharpBoss\Processors" />
+    <file src="Exceptions\**" target="SharpBoss\Exceptions" />
+    <file src="Interfaces\**" target="SharpBoss\Interfaces" />
+    <file src="Attributes\**" target="SharpBoss\Attributes" />
+    <file src="Methods\**" target="SharpBoss\Attributes\Methods" />
+    <file src="Proxies\**" target="SharpBoss\Proxies" />
+    <file src="SharpBoss.Logging\**" target="SharpBoss.Logging" />
+  </files>
+</package>
