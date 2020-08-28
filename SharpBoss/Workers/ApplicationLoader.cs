@@ -333,7 +333,9 @@ namespace SharpBoss.Workers {
             File.Copy (appDebugAssembly, targetDebugFile);
           }
 
-          loaderWorker.LoadAssembly (targetFile);
+          if (File.Exists (targetFile)) {
+            loaderWorker.LoadAssembly (targetFile);
+          }
         } catch (Exception ex) {
           Logger.Error (string.Format ("Failed loading application assembly {0}:\n{1}", appAssembly, ex.ToString ()));
         }
