@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -104,7 +104,7 @@ namespace SharpBoss.Workers {
     /// <param name="assemblyPath">Assembly path</param>
     /// <returns>Assembly</returns>
     private Assembly GetAssembly (string assemblyPath) {
-      var targetPath = Path.Combine (AppDomain.CurrentDomain.BaseDirectory, assemblyPath);
+      var targetPath = Path.Combine (".", assemblyPath);
 
       try {
         Assembly assembly;
