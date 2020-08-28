@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -77,14 +77,24 @@ namespace SharpBoss.Workers {
       try {
         return _restProcessor.Process (path, method, request);
       } catch (Exception ex) {
-        var exceptionName = ex.InnerException.GetType ().Name;
+        var exceptionName = ex.InnerException switch {
+          Exception iex => iex.GetType ().Name,
+          null => ex.GetType ().Name
+        };
+
         IRestExceptionHandler handler = _restProcessor.GetExceptionHandler (exceptionName);
 
         if (handler != null) {
           return handler.HandleException (ex.InnerException);
         }
 
-        throw ex;
+        Logger.Error (ex.Message);
+
+        return new RestResponse (
+          "Internal Server Error",
+          "plain/text",
+          System.Net.HttpStatusCode.InternalServerError
+        );
       }
     }
 
